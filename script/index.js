@@ -32,7 +32,7 @@ app.get('/api/products', async (req, res, next) => {
     }
 })
 
-app.get('api/users/:id/favorites', async (req, res, next)=> {
+app.get('/api/users/:id/favorites', async (req, res, next)=> {
     try {
         res.send(await fetchFavorites(req.params.id))
     }catch(error) {
@@ -42,7 +42,7 @@ app.get('api/users/:id/favorites', async (req, res, next)=> {
 
 app.post('/api/users/:id/favorites', async(req, res, next)=> {
     try {
-      res.status(201).send(await createUserSkill({ user_id: req.params.id, product_id: req.body.product_id}));
+      res.status(201).send(await createFavorite({ user_id: req.params.id, product_id: req.body.product_id}));
     }
     catch(error){
       next(error);

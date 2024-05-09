@@ -75,6 +75,7 @@ const fetchProducts = async() => {
 }
 
 const fetchFavorites = async(id) => {
+    console.log(id);
     const SQL = /* SQL */ `
         SELECT * FROM favorites
         WHERE user_id = $1
